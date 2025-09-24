@@ -24,11 +24,13 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
+        var tries = 0
+
         findViewById<Button>(R.id.button_guess)
             .setOnClickListener {
                 val guess = findViewById<EditText>(R.id.guess_txt).text.toString().toInt()
                 if(guess == randomNumber) {
-                    val toast = Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT) // in Activity
+                    val toast = Toast.makeText(this, "Correct!\nTries: $tries", Toast.LENGTH_SHORT) // in Activity
                     toast.show()
                 } else {
                     if (guess < randomNumber) {
@@ -38,7 +40,7 @@ class MainActivity : AppCompatActivity() {
                         val toast = Toast.makeText(this, "Correct number is lower!", Toast.LENGTH_SHORT) // in Activity
                         toast.show()
                     }
-
+                    tries += 1
                 }
             }
     }
