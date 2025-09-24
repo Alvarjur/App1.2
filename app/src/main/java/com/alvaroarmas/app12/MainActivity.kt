@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         // Calculating random number
-        var randomNumber : Int = (Math.random() * 100).toInt()
+        var randomNumber : Int = (Math.random() * 100 + 1).toInt()
         var tries = 0
         Log.d("NUMBER", randomNumber.toString())
         setContentView(R.layout.activity_main)
@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
                     val toast = Toast.makeText(this, "Correct!\nTries: $tries", Toast.LENGTH_SHORT) // in Activity
                     toast.show()
                     tries = 0
-                    randomNumber = (Math.random() * 100).toInt()
+                    randomNumber = (Math.random() * 100 + 1).toInt()
                     Log.d("NUMBER", randomNumber.toString())
                 } else {
                     if (guess < randomNumber) {
