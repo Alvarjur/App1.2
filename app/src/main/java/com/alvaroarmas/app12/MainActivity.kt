@@ -15,7 +15,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         // Calculating random number
-        val randomNumber : Int = (Math.random() * 100).toInt()
+        var randomNumber : Int = (Math.random() * 100).toInt()
+        var tries = 0
         Log.d("NUMBER", randomNumber.toString())
         setContentView(R.layout.activity_main)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -24,14 +25,16 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        var tries = 0
-
         findViewById<Button>(R.id.button_guess)
             .setOnClickListener {
                 val guess = findViewById<EditText>(R.id.guess_txt).text.toString().toInt()
+                val txt_guess = findViewById<EditText>(R.id.guess_txt)
                 if(guess == randomNumber) {
                     val toast = Toast.makeText(this, "Correct!\nTries: $tries", Toast.LENGTH_SHORT) // in Activity
                     toast.show()
+                    tries = 0
+                    randomNumber = (Math.random() * 100).toInt()
+                    Log.d("NUMBER", randomNumber.toString())
                 } else {
                     if (guess < randomNumber) {
                         val toast = Toast.makeText(this, "Correct number is higher!", Toast.LENGTH_SHORT) // in Activity
@@ -41,7 +44,9 @@ class MainActivity : AppCompatActivity() {
                         toast.show()
                     }
                     tries += 1
+
                 }
+                txt_guess.setText("")
             }
     }
 }
