@@ -27,26 +27,41 @@ class MainActivity : AppCompatActivity() {
 
         findViewById<Button>(R.id.button_guess)
             .setOnClickListener {
-                val guess = findViewById<EditText>(R.id.guess_txt).text.toString().toInt()
                 val txt_guess = findViewById<EditText>(R.id.guess_txt)
-                if(guess == randomNumber) {
-                    val toast = Toast.makeText(this, "Correct!\nTries: $tries", Toast.LENGTH_SHORT) // in Activity
-                    toast.show()
-                    tries = 0
-                    randomNumber = (Math.random() * 100 + 1).toInt()
-                    Log.d("NUMBER", randomNumber.toString())
-                } else {
-                    if (guess < randomNumber) {
-                        val toast = Toast.makeText(this, "Correct number is higher!", Toast.LENGTH_SHORT) // in Activity
-                        toast.show()
-                    } else {
-                        val toast = Toast.makeText(this, "Correct number is lower!", Toast.LENGTH_SHORT) // in Activity
-                        toast.show()
-                    }
-                    tries += 1
+                if (txt_guess.text.isNotEmpty()) {
+                    val guess = findViewById<EditText>(R.id.guess_txt).text.toString().toInt()
 
+                    if (guess == randomNumber) {
+                        val toast = Toast.makeText(
+                            this,
+                            "Correct!\nTries: $tries",
+                            Toast.LENGTH_SHORT
+                        ) // in Activity
+                        toast.show()
+                        tries = 0
+                        randomNumber = (Math.random() * 100 + 1).toInt()
+                        Log.d("NUMBER", randomNumber.toString())
+                    } else {
+                        if (guess < randomNumber) {
+                            val toast = Toast.makeText(
+                                this,
+                                "Correct number is higher!",
+                                Toast.LENGTH_SHORT
+                            ) // in Activity
+                            toast.show()
+                        } else {
+                            val toast = Toast.makeText(
+                                this,
+                                "Correct number is lower!",
+                                Toast.LENGTH_SHORT
+                            ) // in Activity
+                            toast.show()
+                        }
+                        tries += 1
+
+                    }
+                    txt_guess.setText("")
                 }
-                txt_guess.setText("")
             }
     }
 }
