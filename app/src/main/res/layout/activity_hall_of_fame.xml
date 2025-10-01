@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#242424"
+    tools:context=".HallOfFameActivity">
+
+    <TextView
+        android:id="@+id/txt_fame"
+        android:layout_width="338dp"
+        android:layout_height="596dp"
+        android:layout_marginStart="37dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginEnd="37dp"
+        android:text="TextView"
+        android:textColor="#DEDEDE"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="214dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="38dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginBottom="29dp"
+        android:text="HALL OF FAME"
+        android:textAlignment="center"
+        android:textColor="#DEDEDE"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/txt_fame"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.755"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="100dp"
+        android:layout_height="57dp"
+        android:layout_marginEnd="1dp"
+        android:onClick="goBack"
+        android:text="Back"
+        app:layout_constraintEnd_toStartOf="@+id/textView3"
+        tools:layout_editor_absoluteY="28dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
